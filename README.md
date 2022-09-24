@@ -1,5 +1,5 @@
 # This is a fork of the original Debloat Windows 10.
-# It is designed for a lighter debloat for gaming
+# It is designed for a lighter debloat for gaming.
 
 # Debloat Windows 10
 
