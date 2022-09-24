@@ -1,6 +1,6 @@
-#   Description:
-# This script disables unwanted Windows services. If you do not want to disable
-# certain services comment out the corresponding lines below.
+# Description:
+# This script disables unwanted Windows services by preventing them from running on startup
+# It should not cause issues, but services can always be re-enabled using services.msc
 
 $services = @(
     #"diagnosticshub.standardcollector.service" # Microsoft (R) Diagnostics Hub Standard Collector Service

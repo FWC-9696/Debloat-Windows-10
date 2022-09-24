@@ -1,4 +1,7 @@
-﻿Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
+﻿#This script will reformat the date/time to international format and set the date/time
+#based on location. Helpful for laptops.
+
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
 Write-Output "Elevating priviledges for this process"

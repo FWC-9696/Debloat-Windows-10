@@ -1,4 +1,4 @@
-# Description
+# This will disable a lot of the visual effects in windows
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1

@@ -1,5 +1,6 @@
 # Description:
-# This script will disable the "Get More Out of Windows" annoying reminder in the settings app
+# This script will disable the "Get More Out of Windows" annoying reminder in the settings app.
+# Experimental, mixed results.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
