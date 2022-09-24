@@ -1,7 +1,8 @@
-# This is a fork of the original Debloat Windows 10.
-# It is designed for a lighter debloat for gaming and general use.
+# This is a fork of the original Debloat Windows 10. It is designed for a lighter debloat for gaming and general use.
 
-Also, note that gaming-related apps and services will remain intact or will be reinstalled.
+This fork includes additonal utilities in the scripts and startup folders.
+
+Also, note that gaming-related apps and services will remain intact or will be reinstalled by default.
 
 **There is no undo**, I recommend only using these scripts on a fresh
 installation (including Windows Updates). Test everything after running them
@@ -20,8 +21,6 @@ beforehand. If you want a more interactive approach check out
 Code located in the `master` branch is always considered under development, but
 you'll probably want the most recent version anyway.
 
-- [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
-
 ## Execution
 
 Enable execution of PowerShell scripts:
@@ -37,31 +36,10 @@ Unblock PowerShell scripts and modules within this directory:
 Scripts can be run individually, pick what you need.
 
 1. Install all available updates for your system.
-2. Edit the scripts to fit your need.
+2. Edit the scripts to fit your need. Check the comments within each script.
 3. Run the scripts you want to apply from a PowerShell with administrator privileges (Explorer
    `Files > Open Windows PowerShell > Open Windows PowerShell as
    administrator`)
-4. `PS > Restart-Computer`
-5. Run `disable-windows-defender.ps1` one more time if you ran it in step 3
-6. `PS > Restart-Computer`
-
-## Liability
-
-**All scripts are provided as-is and you use them at your own risk.**
-
-## Contribute
-
-I would be happy to extend the collection of scripts. Just open an issue or
-send me a pull request.
-
-### Thanks To
-
-- [10se1ucgo](https://github.com/10se1ucgo)
-- [Plumebit](https://github.com/Plumebit)
-- [aramboi](https://github.com/aramboi)
-- [maci0](https://github.com/maci0)
-- [narutards](https://github.com/narutards)
-- [tumpio](https://github.com/tumpio)
 
 ## License
 
