@@ -4,7 +4,7 @@
 Write-Host "Installing Game Launchets"
 $apps = @(
 
-    "Battle.net"                 #Battle.net
+    #"Battle.net"                 #Battle.net
     "EpicGames.EpicGamesLauncher"#Epic Games Launcher
     "ElectronicArts.EADesktop"   #EA Desktop
     "GOG.Galaxy"                 #GOG Galaxy
