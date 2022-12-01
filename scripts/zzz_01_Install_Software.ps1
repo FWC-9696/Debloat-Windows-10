@@ -23,7 +23,7 @@ $apps = @(
 
     #Non-Windows UWP Apps
     "9NBHCS1LX4R0"             #Paint.net
-    "9N8XB04QLKCN"             #Tree Size, for determining sizes of folders
+    "XP9M26RSCLNT88"            #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
     #Printer UWP Apps
