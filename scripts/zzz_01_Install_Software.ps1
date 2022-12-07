@@ -14,16 +14,16 @@ $apps = @(
     "9N8WTRRSQ8F7"             #Diagnostic Data Viewer
     "9WZDNCRFJBH4"             #Microsoft Photos
     #"9WZDNCRFHVQM"             #Mail and Calendar
-    "9WZDNCRFJ3P2"             #Windows Movies & TV
-    "9N95Q1ZZPMH4"             #MPEG-2 Video Extension
+    #"9WZDNCRFJ3P2"             #Windows Movies & TV
+    #"9N95Q1ZZPMH4"             #MPEG-2 Video Extension
     #"9NBLGGH10PG8"             #Microsoft People
     "9MZ95KL8MR0L"             #Snip and Sketch (New Snipping Tool)
     #"9WZDNCRFJ3PT"             #Groove Music
-    
+    #"9WZDNCRFJ1P3"	        #One Drive
 
     #Non-Windows UWP Apps
     "9NBHCS1LX4R0"             #Paint.net
-    "XP9M26RSCLNT88"            #Tree Size, for determining sizes of folders
+    "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
     #Printer UWP Apps
@@ -33,6 +33,9 @@ $apps = @(
     #Graphics Drivers
     "TechPowerUp.NVCleanstall" #NVCleanstall
     "DisplayLink.GraphicsDriver"#DisplayLink Graphics Driver
+
+    #Media Players
+    
 )
 
 foreach ($app in $apps) {
