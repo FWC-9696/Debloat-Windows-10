@@ -4,6 +4,7 @@
 Write-Host "Installing Game Launchets"
 $apps = @(
 
+    "Amazon.Games"               #Amazon Games
     #"Battle.net"                 #Battle.net
     "EpicGames.EpicGamesLauncher"#Epic Games Launcher
     "ElectronicArts.EADesktop"   #EA Desktop
