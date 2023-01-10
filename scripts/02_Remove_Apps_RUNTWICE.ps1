@@ -28,7 +28,7 @@ $apps = @(
     "Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
-    "Microsoft.Office.OneNote"
+    "Microsoft.Office.OneNote"           #Replaced with UWP App.
     "Microsoft.People"                   #Integrates with Mail and Calendar
     "Microsoft.Print3D"
     "Microsoft.SkypeApp"
@@ -44,7 +44,7 @@ $apps = @(
     #"Microsoft.Xbox.TCUI"
     #"Microsoft.GamingApp"           #Xbox App
     "Microsoft.XboxApp"              #Xbox Console Companion
-    "Microsoft.XboxGamingOverlay"    #Xbox Game Bar
+    #"Microsoft.XboxGamingOverlay"    #Xbox Game Bar
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
@@ -118,8 +118,26 @@ $apps = @(
     "king.com.CandyCrushSodaSaga"
 
     #New Apps to Remove
-    "Disney.37853FC22B2CE"  #Disney+
-    "BytedancePte.Ltd.TikTok" #TikTok
+    "Disney.37853FC22B2CE"                     #Disney+
+    "BytedancePte.Ltd.TikTok"                  #TikTok
+
+    ###Windows11_Apps
+
+    #Non-Microsoft
+    "AdobeSystemsIncorporated.AdobeCreativeCloudExpress"    #AdobeExpress
+    "AmazonVideo.PrimeVideo"                   #Amazon Prime Video
+    "Clipchamp.Clipchamp"                      #Clipchamp
+    "FACEBOOK.317180B0BB486"                   #Facebook Messenger
+    "Facebook.InstagramBeta"                   #Instagram
+    "SpotifyAB.SpotifyMusic"                   #Spotify
+    "5319275A.WhatsAppDesktop"                 #WhatsApp
+    "5319275A.51895FA4EA97F"                   #WhatsApp Beta
+    
+    #Win11
+    "Microsoft.Todos"                          #Microsoft To-Do
+    "MicrosoftCorporationII.QuickAssist"       #Quick Assist
+    "MicrosoftCorporationII.MicrosoftFamily"   #Microsoft Family Safety
+
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -144,12 +162,14 @@ foreach ($app in $apps) {
         Remove-AppxProvisionedPackage -Online
 }
 
+Write-Output "Removing Cortana for the Current User"
 Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage #Cortana
 
 # Prevents Apps from re-installing
 $cdm = @(
     "ContentDeliveryAllowed"
     "FeatureManagementEnabled"
+    "FeatureManagementAllowed"
     "OemPreInstalledAppsEnabled"
     "PreInstalledAppsEnabled"
     "PreInstalledAppsEverEnabled"
