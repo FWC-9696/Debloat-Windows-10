@@ -34,8 +34,11 @@ $apps = @(
     "TechPowerUp.NVCleanstall" #NVCleanstall
     "DisplayLink.GraphicsDriver"#DisplayLink Graphics Driver
 
-    #Media Players
+    #Java
+    "Oracle.JavaRuntimeEnvironment" #Java
     
+    #Media Players
+    "VideoLAN.VLC"              #VLC Media Player
 )
 
 foreach ($app in $apps) {

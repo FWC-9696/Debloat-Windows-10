@@ -12,3 +12,4 @@
 & "C:\Program Files\LGHUB\lghub.exe"					#Logitech G Hub
 & "C:\Program Files\caffeine.exe" -startoff				#Caffeine, but start inactive with "-startoff"
 & "C:\Program Files\DisplayLink Core Software\DisplayLinkTrayApp.exe"	#DisplayLink
+& "C:\Program Files (x86)\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"  #Turtle Beach Audio Hub
