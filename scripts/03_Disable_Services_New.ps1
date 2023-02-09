@@ -30,3 +30,5 @@ foreach ($service in $services) {
     Write-Output "Trying to disable $service"
     Get-Service -Name $service | Set-Service -StartupType Manual
 }
+
+Set-Service HPPrintScanDoctorService -StartupType Disabled
