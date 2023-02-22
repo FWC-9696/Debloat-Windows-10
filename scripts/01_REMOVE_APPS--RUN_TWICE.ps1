@@ -1,4 +1,12 @@
-# YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL
+#
+#
+#
+#
+# YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME
+#
+#
+#
+#
 # Description:
 # This script removes unwanted Apps that come with Windows. If you  do not want
 # to remove certain Apps comment out the corresponding lines below.

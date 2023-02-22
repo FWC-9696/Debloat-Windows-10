@@ -6,10 +6,10 @@
    # For all users: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
    # For current user: C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-& "C:\Program Files\NVCleanstall\NVCleanstall.exe"			#NVCleanstall
-& "C:\Program Files\DS4Windows\DS4Updater.exe"				#DS4Windows
-& "C:\Program Files\Sony\FW updater\FWupdater.exe"			#DualSense Firmware Updater
-& "C:\Program Files\LGHUB\lghub.exe"					#Logitech G Hub
-& "C:\Program Files\caffeine.exe" -startoff				#Caffeine, but start inactive with "-startoff"
-& "C:\Program Files\DisplayLink Core Software\DisplayLinkTrayApp.exe"	#DisplayLink
-#& "C:\Program Files (x86)\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"  #Turtle Beach Audio Hub
+& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"			#NVCleanstall
+& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"				#DS4Windows
+& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"			#DualSense Firmware Updater
+& "$env:ProgramFiles\LGHUB\lghub.exe"					#Logitech G Hub
+& "$env:ProgramFiles\caffeine.exe" -startoff				#Caffeine, but start inactive with "-startoff"
+& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"	#DisplayLink
+#& "${env:ProgramFiles(x86)}\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"  #Turtle Beach Audio Hub
