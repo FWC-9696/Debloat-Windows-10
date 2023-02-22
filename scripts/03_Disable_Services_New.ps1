@@ -7,7 +7,7 @@ $services = @(
     #"DiagTrack"                                # Diagnostics Tracking Service
     "dmwappushservice"                         # WAP Push Message Routing Service (see known issues)
     #"lfsvc"                                    # Geolocation Service
-    #"MapsBroker"                               # Downloaded Maps Manager
+    "MapsBroker"                               # Downloaded Maps Manager
     "NetTcpPortSharing"                        # Net.Tcp Port Sharing Service
     "RemoteAccess"                             # Routing and Remote Access
     "RemoteRegistry"                           # Remote Registry
