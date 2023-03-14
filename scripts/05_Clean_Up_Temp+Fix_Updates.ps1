@@ -12,12 +12,12 @@ sleep 30
 
 Remove-Item -Recurse -Force "$env:windir\temp"
 Remove-Item -Recurse -Force "$env:windir\SoftwareDistribution"
-Remove-Item -Recurse -Force "C:\Windows.Old"
+Remove-Item -Recurse -Force "$env:SystemDrive\Windows.Old"
 
 Remove-Item -Recurse -Force "$env:TEMP"
 Remove-Item -Recurse -Force "$env:USERPROFILE\AppData\Local\Microsoft\Windows\INetCache\*"
 
-Remove-Item -Recurse -Force "C:\TEMP"
+Remove-Item -Recurse -Force "$env:SystemDrive\TEMP"
 
 Remove-Item -Recurse -Force "$env:windir\CarbonBlack"
 Remove-Item -Recurse -Force "$env:windir\CbsTemp"

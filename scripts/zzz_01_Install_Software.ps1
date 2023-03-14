@@ -1,12 +1,8 @@
 #This script will automatically install some Windows Store apps
-#To add apps to the list, find the app at https://apps.microsoft.com/store/apps
-#In the address bar, copy the last piece of the link into the list
-#i.e. https://apps.microsoft.com/store/detail/prime-video-for-windows/9P6RC76MSMMJ
-#is for the prime video app, so you could add "9P6RC76MSMMJ" to the list to install it
-#for programs not from the windows store, use the winget command in powershell to import/export
+#To add apps to the list, use "winget search <appname>" to find the app ID
 
 Write-Host "Installing Software"
-$apps = @(
+$apps = @
     "9MV0B5HZVK9Z"             #Xbox
     "9NZKPSTSNW4P"             #Xbox Game Bar
     "9PLDPG46G47Z"             #Xbox Insider Hub
@@ -35,7 +31,7 @@ $apps = @(
     "DisplayLink.GraphicsDriver"#DisplayLink Graphics Driver
 
     #Java
-    "Oracle.JavaRuntimeEnvironment" #Java
+    #"Oracle.JavaRuntimeEnvironment" #Java
     
     #Media Players
     "VideoLAN.VLC"              #VLC Media Player

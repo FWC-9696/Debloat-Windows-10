@@ -17,7 +17,7 @@ Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 Write-Output "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
-Write-Output "Uninstalling default apps"
+Write-Output "YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME. Uninstalling:"
 $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
@@ -32,7 +32,7 @@ $apps = @(
     "Microsoft.Microsoft3DViewer"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
@@ -51,8 +51,8 @@ $apps = @(
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.Xbox.TCUI"
     #"Microsoft.GamingApp"           #Xbox App
-    "Microsoft.XboxApp"              #Xbox Console Companion
-    #"Microsoft.XboxGamingOverlay"    #Xbox Game Bar
+    #"Microsoft.XboxApp"             #Xbox Console Companion. Need this on Win 11 to check Xbox Network Status.
+    #"Microsoft.XboxGamingOverlay"   #Xbox Game Bar
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
@@ -145,6 +145,7 @@ $apps = @(
     "Microsoft.Todos"                          #Microsoft To-Do
     "MicrosoftCorporationII.QuickAssist"       #Quick Assist
     "MicrosoftCorporationII.MicrosoftFamily"   #Microsoft Family Safety
+    "MicrosoftTeams"                           #Teams
 
 
     # apps which cannot be removed using Remove-AppxPackage
@@ -172,6 +173,9 @@ foreach ($app in $apps) {
 
 Write-Output "Removing Cortana for the Current User"
 Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage #Cortana
+
+Write-Output "Uninstall Desktop Teams, if Present"
+winget uninstall Microsoft.Teams
 
 # Prevents Apps from re-installing
 $cdm = @(
