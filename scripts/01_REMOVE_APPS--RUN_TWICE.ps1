@@ -126,6 +126,7 @@ $apps = @(
     "king.com.BubbleWitch3Saga"
     "king.com.CandyCrushSaga"
     "king.com.CandyCrushSodaSaga"
+    "A025C540.Yandex.Music"
 
     #New Apps to Remove
     "Disney.37853FC22B2CE"                     #Disney+
