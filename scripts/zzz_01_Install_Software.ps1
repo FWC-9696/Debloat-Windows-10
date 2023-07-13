@@ -16,6 +16,7 @@ $apps = @
     "9MZ95KL8MR0L"             #Snip and Sketch (New Snipping Tool)
     #"9WZDNCRFJ3PT"             #Groove Music
     #"9WZDNCRFJ1P3"	        #One Drive
+    "9NRX63209R7B"              #Outlook for Windows (Replacement for Mail & Calendar)
 
     #Non-Windows UWP Apps
     "9NBHCS1LX4R0"             #Paint.net

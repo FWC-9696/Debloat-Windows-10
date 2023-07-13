@@ -16,8 +16,10 @@ Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 
 Write-Output "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
-
-Write-Output "YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME. Uninstalling:"
+Write-Output `n
+Write-Output "YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME."
+Sleep 3
+Write-Output `n "Uninstalling:"
 $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
@@ -32,7 +34,7 @@ $apps = @(
     "Microsoft.Microsoft3DViewer"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftPowerBIForWindows"
-    #"Microsoft.MicrosoftSolitaireCollection"
+    "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
@@ -45,7 +47,7 @@ $apps = @(
     "Microsoft.WindowsAlarms"
     #"Microsoft.WindowsCalculator"
     "Microsoft.WindowsCamera"
-    #"microsoft.windowscommunicationsapps" #Mail and Calendar App
+    "Microsoft.Windowscommunicationsapps" #Mail and Calendar App (Old)
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"

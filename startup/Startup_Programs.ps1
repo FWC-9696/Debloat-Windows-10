@@ -11,5 +11,5 @@
 & "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"			#DualSense Firmware Updater
 & "$env:ProgramFiles\LGHUB\lghub.exe"					#Logitech G Hub
 & "$env:ProgramFiles\caffeine.exe" -startoff				#Caffeine, but start inactive with "-startoff"
-& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"	#DisplayLink
+#& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"	#DisplayLink
 #& "${env:ProgramFiles(x86)}\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"  #Turtle Beach Audio Hub
