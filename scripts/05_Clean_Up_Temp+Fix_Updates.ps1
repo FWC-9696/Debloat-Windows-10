@@ -10,8 +10,9 @@ Write-Host `n
 Write-Host "Waiting 30 seconds for services to terminate, and removing temp files..." `n
 sleep 30
 
-Remove-Item -Recurse -Force "$env:windir\temp"
 Remove-Item -Recurse -Force "$env:windir\SoftwareDistribution"
+Remove-Item -Recurse -Force "$env:windir\temp"
+
 Remove-Item -Recurse -Force "$env:SystemDrive\Windows.Old"
 
 Remove-Item -Recurse -Force "$env:TEMP"
@@ -19,15 +20,15 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\AppData\Local\Microsoft\Windows\IN
 
 Remove-Item -Recurse -Force "$env:SystemDrive\TEMP"
 
-Remove-Item -Recurse -Force "$env:windir\CarbonBlack"
-Remove-Item -Recurse -Force "$env:windir\CbsTemp"
-
-Remove-Item -Recurse -Force "$env:windir\ccmcache"
-Remove-Item -Recurse -Force "$env:windir\CCM\Temp"
-Remove-Item -Recurse -Force "$env:windir\CCM\Inventory\Temp"
-Remove-Item -Recurse -Force "$env:windir\CCM\Logs\*"
-Remove-Item -Recurse -Force "$env:windir\CCM\SystemTemp"
-Remove-Item -Recurse -Force "$env:windir\CCM\Staging\*"
+#None of these are needed
+#Remove-Item -Recurse -Force "$env:windir\CarbonBlack"
+#Remove-Item -Recurse -Force "$env:windir\CbsTemp"
+#Remove-Item -Recurse -Force "$env:windir\ccmcache"
+#Remove-Item -Recurse -Force "$env:windir\CCM\Temp"
+#Remove-Item -Recurse -Force "$env:windir\CCM\Inventory\Temp"
+#Remove-Item -Recurse -Force "$env:windir\CCM\Logs\*"
+#Remove-Item -Recurse -Force "$env:windir\CCM\SystemTemp"
+#Remove-Item -Recurse -Force "$env:windir\CCM\Staging\*"
 
 Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs
 

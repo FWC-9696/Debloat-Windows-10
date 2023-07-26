@@ -2,7 +2,7 @@
 #To add apps to the list, use "winget search <appname>" to find the app ID
 
 Write-Host "Installing Software"
-$apps = @
+$apps = @(
     "9MV0B5HZVK9Z"             #Xbox
     "9NZKPSTSNW4P"             #Xbox Game Bar
     "9PLDPG46G47Z"             #Xbox Insider Hub
@@ -21,21 +21,21 @@ $apps = @
     #Non-Windows UWP Apps
     "9NBHCS1LX4R0"             #Paint.net
     "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
-    "XPFCG5NRKXQPKT"           #Foxit PDF Reader
+    #"XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
     #Printer UWP Apps
     #"9WZDNCRFJ14K"             #Cannon Inkjet Print Utility
-    "9WZDNCRFHWLH"             #HP Smart
+    #"9WZDNCRFHWLH"             #HP Smart
 
     #Graphics Drivers
-    "TechPowerUp.NVCleanstall" #NVCleanstall
-    "DisplayLink.GraphicsDriver"#DisplayLink Graphics Driver
+    #"TechPowerUp.NVCleanstall" #NVCleanstall
+    #"DisplayLink.GraphicsDriver"#DisplayLink Graphics Driver
 
     #Java
     #"Oracle.JavaRuntimeEnvironment" #Java
     
     #Media Players
-    "VideoLAN.VLC"              #VLC Media Player
+    #"VideoLAN.VLC"              #VLC Media Player
 )
 
 foreach ($app in $apps) {
