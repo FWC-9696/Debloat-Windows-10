@@ -9,17 +9,17 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 Write-Host "Enabling Location and Setting Clock to Automatic"
 
-Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableLocation" "0"
-Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableLocationScripting" "0"
-Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableSensors" "0"
-Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableWindowsLocationProvider" "0"
-Set-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\ "Value" "Allow"
-Set-ItemProperty -Path "HKCU:\Control Panel\International" "itime" "1"
-Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortTime" "HH:mm"
-Set-ItemProperty -Path "HKCU:\Control Panel\International" "sTimeFormat" "HH:mm:ss"
-Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortDate" "yyyy-MM-dd"
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableLocation" "0" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableLocationScripting" "0" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableSensors" "0" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors\ "DisableWindowsLocationProvider" "0" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\ "Value" "Allow" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Control Panel\International" "itime" "1" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortTime" "HH:mm" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Control Panel\International" "sTimeFormat" "HH:mm:ss" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortDate" "yyyy-MM-dd" -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue
 
 $services = @(
     "tzautoupdate" #Automatically sets the system time zone.
@@ -32,6 +32,8 @@ foreach ($service in $services) {
     Get-Service -Name $service | Set-Service -StartupType Automatic
 }
 
+Start-Service -Name W32Time -PassThru
+Write-Host `n
 W32tm /resync /force
-
+Write-Host `n
 Write-Host "Done"

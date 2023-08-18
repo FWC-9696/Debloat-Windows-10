@@ -1,5 +1,4 @@
 #This will delete common temporary directories and might help fix Windows updates.
-#Folders may not all exist, and might show red text.
 
 Write-Host "Stopping Windows Update Service & Cleaning Up System Files" `n
 
@@ -10,25 +9,24 @@ Write-Host `n
 Write-Host "Waiting 30 seconds for services to terminate, and removing temp files..." `n
 sleep 30
 
-Remove-Item -Recurse -Force "$env:windir\SoftwareDistribution"
-Remove-Item -Recurse -Force "$env:windir\temp"
+Remove-Item -Recurse -Force "$env:windir\SoftwareDistribution\*" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\temp\*" -ErrorAction SilentlyContinue
 
-Remove-Item -Recurse -Force "$env:SystemDrive\Windows.Old"
+Remove-Item -Recurse -Force "$env:SystemDrive\Windows.Old" -ErrorAction SilentlyContinue
 
-Remove-Item -Recurse -Force "$env:TEMP"
-Remove-Item -Recurse -Force "$env:USERPROFILE\AppData\Local\Microsoft\Windows\INetCache\*"
+Remove-Item -Recurse -Force "$env:TEMP" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:USERPROFILE\AppData\Local\Microsoft\Windows\INetCache\*" -ErrorAction SilentlyContinue
 
-Remove-Item -Recurse -Force "$env:SystemDrive\TEMP"
+Remove-Item -Recurse -Force "$env:SystemDrive\TEMP" -ErrorAction SilentlyContinue
 
-#None of these are needed
-#Remove-Item -Recurse -Force "$env:windir\CarbonBlack"
-#Remove-Item -Recurse -Force "$env:windir\CbsTemp"
-#Remove-Item -Recurse -Force "$env:windir\ccmcache"
-#Remove-Item -Recurse -Force "$env:windir\CCM\Temp"
-#Remove-Item -Recurse -Force "$env:windir\CCM\Inventory\Temp"
-#Remove-Item -Recurse -Force "$env:windir\CCM\Logs\*"
-#Remove-Item -Recurse -Force "$env:windir\CCM\SystemTemp"
-#Remove-Item -Recurse -Force "$env:windir\CCM\Staging\*"
+Remove-Item -Recurse -Force "$env:windir\CarbonBlack" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CbsTemp" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\ccmcache" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CCM\Temp" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CCM\Inventory\Temp" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CCM\Logs\*" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CCM\SystemTemp" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$env:windir\CCM\Staging\*" -ErrorAction SilentlyContinue
 
 Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs
 
