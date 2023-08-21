@@ -6,14 +6,15 @@
    # For all users: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
    # For current user: C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						#NVCleanstall
-& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"							#DS4Windows
-& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"						#DualSense Firmware Updater
-& "$env:ProgramFiles\LGHUB\lghub.exe"								#Logitech G Hub
-#& "$env:ProgramFiles\caffeine.exe" -startoff							#Caffeine, but start inactive with "-startoff"
-"$env:LOCALAPPDATA\PowerToys\PowerToys.Awake.exe"                       #PowerToys Awake, Replaces Caffeine
-#& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"				#DisplayLink
-#& "${env:ProgramFiles(x86)}\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"		#Turtle Beach Audio Hub (Crap)
-& "$env:LOCALAPPDATA\Amazon Games\App\Amazon Games.exe"						#Amazon Games
-explorer shell:appsFolder\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe!App		#Microsoft Solitaire Colletion
+& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						                          #NVCleanstall
+& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"							                          #DS4Windows
+& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"						                          #DualSense Firmware Updater
+& "$env:ProgramFiles\LGHUB\lghub.exe"								                              #Logitech G Hub
+#& "$env:ProgramFiles\caffeine.exe" -startoff							                          #Caffeine, but start inactive with "-startoff"
+"$env:LOCALAPPDATA\PowerToys\PowerToys.Awake.exe"                                                 #PowerToys Awake, Replaces Caffeine
+#& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"				              #DisplayLink
+#& "${env:ProgramFiles(x86)}\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"		          #Turtle Beach Audio Hub (Crap)
+& "$env:LOCALAPPDATA\Amazon Games\App\Amazon Games.exe"						                      #Amazon Games
+& "${env:ProgramFiles(x86)}\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe"      #Epic Games
+explorer shell:appsFolder\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe!App	           	  #Microsoft Solitaire Colletion
 #explorer shell:appsFolder\
