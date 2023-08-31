@@ -1,13 +1,16 @@
 #This will delete common temporary directories and might help fix Windows updates.
 
-Write-Host "Stopping Windows Update Service & Cleaning Up System Files" `n
+Write-Host `n
+Write-Host "Stopping Windows Update Service..." `n
 
-Stop-Service -Name wuauserv -PassThru
-Stop-Service -Name bits -PassThru
+Stop-Service -Name wuauserv -Force
+Stop-Service -Name bits -Force
+sleep 5
+get-service bits, wuauserv
 
 Write-Host `n
-Write-Host "Waiting 30 seconds for services to terminate, and removing temp files..." `n
-sleep 30
+Write-Host "Removing System Files..." `n
+#sleep 30
 
 Remove-Item -Recurse -Force "$env:windir\SoftwareDistribution\*" -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force "$env:windir\temp\*" -ErrorAction SilentlyContinue
@@ -28,6 +31,13 @@ Remove-Item -Recurse -Force "$env:windir\CCM\Logs\*" -ErrorAction SilentlyContin
 Remove-Item -Recurse -Force "$env:windir\CCM\SystemTemp" -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force "$env:windir\CCM\Staging\*" -ErrorAction SilentlyContinue
 
-Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs
+Write-Host "Launching Disk Cleanup..." `n
+
+Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs -Wait
+
+Write-Host "Checking for Windows Updates..." `n
+
+USOClient StartInteractiveScan
+Start-Process ms-settings:windowsupdate
 
 Write-Host "Done"
