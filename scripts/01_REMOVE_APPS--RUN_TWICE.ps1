@@ -148,7 +148,7 @@ $apps = @(
     "Microsoft.Todos"                          #Microsoft To-Do
     "MicrosoftCorporationII.QuickAssist"       #Quick Assist
     "MicrosoftCorporationII.MicrosoftFamily"   #Microsoft Family Safety
-    "MicrosoftTeams"                           #Teams
+    #"MicrosoftTeams"                           #Teams
 
 
     # apps which cannot be removed using Remove-AppxPackage

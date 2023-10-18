@@ -37,7 +37,7 @@ Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs -Wait
 
 Write-Host "Checking for Windows Updates..." `n
 
-USOClient StartInteractiveScan
 Start-Process ms-settings:windowsupdate
+USOClient StartInteractiveScan
 
 Write-Host "Done"

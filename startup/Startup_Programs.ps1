@@ -16,5 +16,4 @@
 #& "${env:ProgramFiles(x86)}\Turtle Beach\Ear Force Audio Hub\PTUtilityShell.exe"		          #Turtle Beach Audio Hub (Crap)
 & "$env:LOCALAPPDATA\Amazon Games\App\Amazon Games.exe"						                      #Amazon Games
 & "${env:ProgramFiles(x86)}\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe"      #Epic Games
-explorer shell:appsFolder\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe!App	           	  #Microsoft Solitaire Colletion
-#explorer shell:appsFolder\
+explorer shell:appsFolder\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe!App	           	  #Microsoft Solitaire Colletion NOTE: Use Get:StartApps for list of UWP Apps
