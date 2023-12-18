@@ -54,7 +54,7 @@ $apps = @(
     #"Microsoft.Xbox.TCUI"
     #"Microsoft.GamingApp"           #Xbox App
     #"Microsoft.XboxApp"             #Xbox Console Companion. Need this on Win 11 to check Xbox Network Status.
-    #"Microsoft.XboxGamingOverlay"   #Xbox Game Bar
+    "Microsoft.XboxGamingOverlay"   #Xbox Game Bar
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
@@ -150,6 +150,10 @@ $apps = @(
     "MicrosoftCorporationII.MicrosoftFamily"   #Microsoft Family Safety
     #"MicrosoftTeams"                           #Teams
 
+    #More Win 11 Junk
+    "Windows.DevHome"
+    "Microsoft.Getstarted*"
+
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -167,7 +171,7 @@ $apps = @(
 foreach ($app in $apps) {
     Write-Output "Trying to remove $app"
 
-    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers -ErrorAction Continue
 
     Get-AppXProvisionedPackage -Online |
         Where-Object DisplayName -EQ $app |
@@ -177,8 +181,6 @@ foreach ($app in $apps) {
 Write-Output "Removing Cortana for the Current User"
 Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage #Cortana
 
-Write-Output "Uninstall Desktop Teams, if Present"
-winget uninstall Microsoft.Teams
 
 # Prevents Apps from re-installing
 $cdm = @(
@@ -209,3 +211,10 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDow
 # Prevents "Suggested Applications" returning
 New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
+
+Write-Output "Uninstall Desktop Teams, if Present"
+winget uninstall Microsoft.Teams
+
+Write-Output "Uninstall Dev Home & Dev Home Github Extension, if Present" #Remove Dev Home App (If not working through APPX
+winget uninstall 9N8MHTPHNGVV
+winget uninstall 9NZCC27PR6N6

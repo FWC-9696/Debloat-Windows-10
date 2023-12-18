@@ -7,6 +7,8 @@ $apps = @(
 
     "Microsoft.PowerToys"      #PowerToys
 
+    "9P7KNL5RWT25"             #Microsoft Sysinternals Suite (Includes Process explorer & Other Tools)
+
     "9MV0B5HZVK9Z"             #Xbox
     "9NZKPSTSNW4P"             #Xbox Game Bar
     "9PLDPG46G47Z"             #Xbox Insider Hub

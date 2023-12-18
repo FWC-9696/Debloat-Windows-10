@@ -20,3 +20,6 @@ Start-Process ms-settings:windowsupdate
 USOClient StartInteractiveScan
 
 winget upgrade
+
+#NVCleanstall (Updates Graphics Drivers)
+& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						                          

@@ -6,9 +6,9 @@
    # For all users: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
    # For current user: C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						                          #NVCleanstall
-& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"							                          #DS4Windows
-& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"						                          #DualSense Firmware Updater
+#& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						                          #NVCleanstall
+#& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"							                          #DS4Windows
+#& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"						                          #DualSense Firmware Updater
 & "$env:ProgramFiles\LGHUB\lghub.exe"								                              #Logitech G Hub
 #& "$env:ProgramFiles\caffeine.exe" -startoff							                          #Caffeine, but start inactive with "-startoff"
 "$env:LOCALAPPDATA\PowerToys\PowerToys.Awake.exe"                                                 #PowerToys Awake, Replaces Caffeine

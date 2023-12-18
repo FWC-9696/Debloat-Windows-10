@@ -60,14 +60,20 @@ Write-Output "Setting Windows 10/11 Display Options"
 #New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAL -PropertyType DWORD -Value 1                #Set Taskbar to Left (0) or Center (1) (Win 11)
 #Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarAL" 1
 
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_ShowClassicMode -Type DWORD -Value 1
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_ShowClassicMode -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_ShowClassicMode" 1
 
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name IsDynamicSearchBoxEnabled -Type DWORD -Value 0    #Hide Search (Win 11)
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name IsDynamicSearchBoxEnabled -Type DWORD -Value 0  -ErrorAction SilentlyContinue  #Hide Search (Win 11)
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" "IsDynamicSearchBoxEnabled" 0
 
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -Type DWORD -Value 0
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -Type DWORD -Value 0 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarMn" 0
+
+Write-Output "Disabling Copilot"
+
+New-FolderForced "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot"
+New-Item -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" -Name TurnOffWindowsCopilot -Type DWORD -Value 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" "TurnOffWindowsCopilot" 1
 
 Write-Output "Done, Restarting Explorer..."
 
@@ -77,6 +83,6 @@ start explorer.exe
 
 Write-Output "Bringing up option to show all notification icons Win11..."
 
-New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 1
+New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 1
 cmd /c "explorer shell:::{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}"
