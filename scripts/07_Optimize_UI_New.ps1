@@ -26,7 +26,7 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" "Fl
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" "Flags" "58"
 
 Write-Output "Disable Edge desktop shortcut on new profiles"
-New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name DisableEdgeDesktopShortcutCreation -Type DWORD -Value 1
+New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name DisableEdgeDesktopShortcutCreation -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 
 Write-Output "Setting folder view options"
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Hidden" 1
