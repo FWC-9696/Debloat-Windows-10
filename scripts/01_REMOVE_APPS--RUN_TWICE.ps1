@@ -154,6 +154,12 @@ $apps = @(
     "Windows.DevHome"
     "Microsoft.Getstarted*"
 
+    #RandomSaladGames
+    "26720RandomSaladGamesLLC.*"
+    "26720RandomSaladGamesLLC.HeartsDeluxe"
+    "26720RandomSaladGamesLLC.SimpleSolitaire"
+    "26720RandomSaladGamesLLC.SimpleSpiderSolitaire"
+    "26720RandomSaladGamesLLC.Spades"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -176,6 +182,34 @@ foreach ($app in $apps) {
     Get-AppXProvisionedPackage -Online |
         Where-Object DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
+}
+
+winget uninstall 9WZDNCRFJ0PK #Dropbox Lite
+winget uninstall 9NBLGGH537BP #Apps Explorer
+winget uninstall 9N12Z3CCTCNZ #Alexa
+winget uninstall 9WZDNCRFJ3MB #Evernote
+winget uninstall 9WZDNCRFJ3WL #Hearts Deluxe
+winget uninstall 9WZDNCRDKRDS #Simple Mahjong
+winget uninstall 9WZDNCRFJ3TT #Simple Solitaire
+winget uninstall 9WZDNCRDKRDT #Simple Spider Solitaire
+winget uninstall 9WZDNCRFJ3GM #Spades
+winget uninstall 9NKSQGP7F2NH #WhatsApp
+winget uninstall 9NCBCSZSJRSB #Spotify
+winget uninstall 9P1J8S7CCWWT #ClipChamp
+winget uninstall 9WZDNCRFJ4Q7 #Linkedin
+winget uninstall 9N8MHTPHNGVV #Dev Home
+winget uninstall 9NZCC27PR6N6 #Dev Home Github Extension
+
+
+#Remove shortcuts
+$shortcuts = @(
+"Amazon.url"
+"Booking.com.url"
+"Forge of Empires.url"
+)
+
+foreach ($shortcut in $shortcuts) {
+rm "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\$shortcut" -ErrorAction SilentlyContinue
 }
 
 Write-Output "Removing Cortana for the Current User"
@@ -214,7 +248,3 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" 
 
 Write-Output "Uninstall Desktop Teams, if Present"
 winget uninstall Microsoft.Teams
-
-Write-Output "Uninstall Dev Home & Dev Home Github Extension, if Present" #Remove Dev Home App (If not working through APPX
-winget uninstall 9N8MHTPHNGVV
-winget uninstall 9NZCC27PR6N6
