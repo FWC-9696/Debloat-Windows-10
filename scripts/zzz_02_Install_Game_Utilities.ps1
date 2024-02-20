@@ -5,13 +5,17 @@
 #is for the prime video app, so you could add "9P6RC76MSMMJ" to the list to install it
 #for programs not from the windows store, use the winget command in powershell to import/export
 
+#Write-Host "Opening DS4Windows Download Page (No Winget Package)"
+#sleep 3
+#Start-Process https://github.com/Ryochan7/DS4Windows/releases
+
 Write-Host "Installing Game Utilities"
 $apps = @(
 
     "PlayStation.DualSenseFWUpdater" #DualShock (PS5 Controller) Firmware Updater
     "Radmin.VPN"                     #Radmin VPN (Replaces LogMeIn Hamachi or LAN)
     "Logitech.GHUB"                  #Logitech G Hub
-    "ViGEm.ViGEmBus"                 #Nefarius Gamepad Emulator, Subcomponent of DS4Windows
+    #"ViGEm.ViGEmBus"                 #Nefarius Gamepad Emulator, Subcomponent of DS4Windows
 )
 
 foreach ($app in $apps) {

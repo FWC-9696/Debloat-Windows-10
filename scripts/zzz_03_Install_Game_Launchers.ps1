@@ -21,3 +21,7 @@ foreach ($app in $apps) {
     winget install $app --accept-source-agreements --accept-package-agreements
 
     }
+
+Write-Host "Installing Rockstar Games Launcher from Source (No Winget Package)"
+sleep 3
+Start-Process https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe #Rockstar Games Launcher
