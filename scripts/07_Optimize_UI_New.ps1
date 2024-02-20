@@ -45,44 +45,79 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 Write-Output "Disable Hybrid Shutdown"
 powercfg -h off
 
-Write-Output "Adjust Appearance and Performance of Windows"
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 3
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" "UserPreferencesMask" ([byte[]](0x90,
-0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
-
 Write-Output "Hide The Search Bar"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" "SearchboxTaskbarMode" 0
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name IsDynamicSearchBoxEnabled -Type DWORD -Value 0  -ErrorAction SilentlyContinue  #Hide Search (Win 11)
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" "IsDynamicSearchBoxEnabled" 0
+New-Item -Path "HKLM:\SOFTWARE\Microsoft\PolicyManager\default\Search" -Name DisableSearch -Type DWORD -Value 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\PolicyManager\default\Search" "DisableSearch" 1
 
 Write-Output "Showing All Notification Icons"
+New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "EnableAutoTray" 0
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
 
+Write-Output "Showing Scroll Bars"
+New-Item -Path "HKCU:\Control Panel\Accessibility" -Name DynamicScrollbars -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility" "DynamicScrollbars" 0
+
 Write-Output "Setting Windows 10/11 Display Options"
+
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" "AppsUseLightTheme" 0
+
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" "SystemUsesLightTheme" 0
+
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" "EnableTransparency" 0
+
 #New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAL -PropertyType DWORD -Value 1                #Set Taskbar to Left (0) or Center (1) (Win 11)
 #Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarAL" 1
 
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_ShowClassicMode -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_ShowClassicMode" 1
 
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name IsDynamicSearchBoxEnabled -Type DWORD -Value 0  -ErrorAction SilentlyContinue  #Hide Search (Win 11)
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" "IsDynamicSearchBoxEnabled" 0
-
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -Type DWORD -Value 0 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarMn" 0
 
 Write-Output "Disabling Copilot"
-
 New-FolderForced "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot"
 New-Item -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" -Name TurnOffWindowsCopilot -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" "TurnOffWindowsCopilot" 1
 
-Write-Output "Done, Restarting Explorer..."
+Write-Output "Stopping Newsfeed from Opening on Hover"
+New-Item -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" -Name ShellFeedsTaskbarOpenOnHover -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" "ShellFeedsTaskbarOpenOnHover" 0
 
+Write-Output "Windows 11: Remove Taskbar Animations"
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAnimations -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarAnimations" 0
+
+Write-Output "Remove Recommended From Start"
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideRecommendedSection -Type DWORD -Value 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideRecommendedSection" 1
+
+Write-Output "Set Start Layout"
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_Layout -Type DWORD -Value 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_Layout" 1
+
+Write-Output "Adjust Appearance and Performance of Windows"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 3
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" "UserPreferencesMask" ([byte[]](0x90,
+0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
+
+Write-Output "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
 sleep 1
 start explorer.exe
+sleep 3
 
-Write-Output "Bringing up option to show all notification icons Win11..."
+Write-Output "Showing all notification icons..."
+New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
+#cmd /c "explorer shell:::{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}"
 
-New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 1 -ErrorAction SilentlyContinue
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 1
-cmd /c "explorer shell:::{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}"
+Write-Output `n
+Write-Output "REBOOT IS REQUIRED FOR SOME ITEMS!"
+Write-Output `n

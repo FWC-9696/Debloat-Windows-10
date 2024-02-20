@@ -1,12 +1,3 @@
-#
-#
-#
-#
-# YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME
-#
-#
-#
-#
 # Description:
 # This script removes unwanted Apps that come with Windows. If you  do not want
 # to remove certain Apps comment out the corresponding lines below.
@@ -16,9 +7,7 @@ Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 
 Write-Output "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
-Write-Output `n
-Write-Output "YOU MIGHT NEED TO RUN THIS ONE TWICE IF IT SHOWS RED TEXT IN POWERSHELL THE FIRST TIME."
-Sleep 3
+
 Write-Output `n "Uninstalling:"
 $apps = @(
     # default Windows 10 apps
@@ -199,7 +188,10 @@ winget uninstall 9P1J8S7CCWWT #ClipChamp
 winget uninstall 9WZDNCRFJ4Q7 #Linkedin
 winget uninstall 9N8MHTPHNGVV #Dev Home
 winget uninstall 9NZCC27PR6N6 #Dev Home Github Extension
-
+winget uninstall 9P7JQGL6GC8P #Luminar Neo AI Photo Editor
+winget uninstall 9PL59F1G4XSZ #Linkedin
+winget uninstall 9PGM3QB3PDRD #Camo Studio
+winget uninstall XPDDXX9QW8N9D7 #Grammarly
 
 #Remove shortcuts
 $shortcuts = @(
@@ -248,3 +240,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" 
 
 Write-Output "Uninstall Desktop Teams, if Present"
 winget uninstall Microsoft.Teams
+
+Write-Output `n
+Write-Output "Note: Windows 11 will pin apps to the start menu without installing them. `nYou may need to manually unpin these apps!"
+Write-Output `n
