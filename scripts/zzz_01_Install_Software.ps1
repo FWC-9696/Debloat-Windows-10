@@ -3,6 +3,8 @@
 
 Write-Host "Installing Software"
 $apps = @(
+
+
     #Microsoft Tools & Apps
     "9NBLGGH4NNS1"             #Update Winget itself
     "Microsoft.PowerToys"      #PowerToys
@@ -27,9 +29,12 @@ $apps = @(
     "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
+    #Fan Control
+    "Rem0o.FanControl"
+
      #Graphics Drivers
     "TechPowerUp.NVCleanstall"     #NVCleanstall
-    ################################Note: AMD still doesn't have a valid Winget package yet! See below.
+    #######"9NZ1BJQN6BHL"                 #AMD Radeon Software -- DON'T USE THIS Version. See bottom for correct version.
     #"DisplayLink.GraphicsDriver"  #DisplayLink Graphics Driver
     "9N09F8V8FS02"                 #DisplayLink Manager
       
@@ -37,7 +42,7 @@ $apps = @(
     #"Oracle.JavaRuntimeEnvironment"     #Java
     #"VideoLAN.VLC"                      #VLC Media Player
     "TheDocumentFoundation.LibreOffice"  #LibreOffice
-    "Audacity.Audacity"                  #Audacity
+    #"Audacity.Audacity"                  #Audacity
     
     #Printer Apps
     #"9WZDNCRFJ14K"             #Cannon Inkjet Print Utility
@@ -50,7 +55,6 @@ foreach ($app in $apps) {
     winget install $app --accept-source-agreements --accept-package-agreements
 
     }
-
 
 Write-Host "Opening AMD Website for AMD Software Download (No Winget Package)"
 sleep 3

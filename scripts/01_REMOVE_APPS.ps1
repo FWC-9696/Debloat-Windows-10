@@ -40,9 +40,9 @@ $apps = @(
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
-    #"Microsoft.Xbox.TCUI"
+    "Microsoft.Xbox.TCUI"
     #"Microsoft.GamingApp"           #Xbox App
-    #"Microsoft.XboxApp"             #Xbox Console Companion. Need this on Win 11 to check Xbox Network Status.
+    "Microsoft.XboxApp"             #Xbox Console Companion. Need this on Win 11 to check Xbox Network Status.
     "Microsoft.XboxGamingOverlay"   #Xbox Game Bar
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
@@ -150,6 +150,9 @@ $apps = @(
     "26720RandomSaladGamesLLC.SimpleSpiderSolitaire"
     "26720RandomSaladGamesLLC.Spades"
 
+    #Manufacturer-Specific Junk
+    "AcerIncorporated.AcerPurifiedVoiceConsole*"
+
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
     #"Microsoft.MicrosoftEdge"
@@ -173,6 +176,14 @@ foreach ($app in $apps) {
         Remove-AppxProvisionedPackage -Online
 }
 
+#Uninstall more stuff using WinGet
+winget uninstall 9NFTCH6J7FHV #Power Automate
+winget uninstall 9NZBF4GT040C #Web Search from Microsoft Bing
+winget uninstall 9NTXGKQ8P7N0 #Cross Device Experience Host
+winget uninstall 9WZDNCRFJBD8 #Xbox Console Companion
+#winget uninstall 9MSSGKG348SP #Windows Web Experience Pack
+
+#3rd party stuff using WinGet
 winget uninstall 9WZDNCRFJ0PK #Dropbox Lite
 winget uninstall 9NBLGGH537BP #Apps Explorer
 winget uninstall 9N12Z3CCTCNZ #Alexa
