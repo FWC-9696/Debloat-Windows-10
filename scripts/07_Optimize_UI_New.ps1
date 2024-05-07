@@ -6,6 +6,10 @@ Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 Write-Output "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
+Write-Output "Adjust Appearance and Performance of Windows"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 2
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 3
+
 Write-Output "Apply MarkC's mouse acceleration fix"
 Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "MouseSensitivity" "10"
 Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "MouseSpeed" "0"
@@ -102,9 +106,12 @@ Write-Output "Set Start Layout"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_Layout -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_Layout" 1
 
-Write-Output "Adjust Appearance and Performance of Windows"
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 2
+Write-Output "Fix Context Menu"
+New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" -ErrorAction SilentlyContinue
+New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"   -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Name "(Default)" -Value ""
 
+Write-Output "Adjusting Appearance & Performance of Windows"
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name MinANimate -Value 0
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Currentversion\Explorer\Advanced" -Name TaskbarAnimations -Value 0
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name EnableAeroPeek -Value 0
@@ -112,13 +119,10 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name AlwaysHibern
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name IconsOnly -Value 0
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ListViewAlphaSelect -Value 0
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name DragFullWindows -Value 0
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name FontSmoothing -Value 1
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name FontSmoothing -Value 2
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ListviewShadow -Value 0
-
-Write-Output "Fix Context Menu"
-New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" -ErrorAction SilentlyContinue
-New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"   -ErrorAction SilentlyContinue
-Set-ItemProperty -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Name "(Default)" -Value ""
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Type BINARY -Name UserPreferencesMask -Value ([byte[]](0x90,
+0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
 
 Write-Output "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
@@ -126,9 +130,9 @@ sleep 1
 start explorer.exe
 sleep 3
 
-Write-Output "Showing all notification icons..."
-New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
+#Write-Output "Showing all notification icons..."
+New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 1
 #cmd /c "explorer shell:::{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}"
 
 Write-Output `n
