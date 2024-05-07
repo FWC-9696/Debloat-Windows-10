@@ -1,6 +1,6 @@
 # This is a fork of the original Debloat Windows 10. It is designed for a lighter debloat for gaming and general use.
 
-This fork includes additonal utilities in the scripts and startup folders.
+This fork includes additonal utilities in the scripts and startup folders. Note that the original is generally unmaintained.
 
 Also, note that gaming-related apps and services will remain intact or will be reinstalled by default.
 
@@ -12,9 +12,7 @@ work after future updates since I cannot predict what Microsoft will do next.
 ## Interactivity
 
 The scripts are designed to run without any user interaction. Modify them
-beforehand. If you want a more interactive approach check out
-[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
-[10se1ucgo](https://github.com/10se1ucgo).
+beforehand.
 
 ## Download Latest Version
 
