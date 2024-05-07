@@ -103,9 +103,22 @@ New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advance
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_Layout" 1
 
 Write-Output "Adjust Appearance and Performance of Windows"
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 3
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" "UserPreferencesMask" ([byte[]](0x90,
-0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 2
+
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name MinANimate -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Currentversion\Explorer\Advanced" -Name TaskbarAnimations -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name EnableAeroPeek -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name AlwaysHibernateThumbnails -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name IconsOnly -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ListViewAlphaSelect -Value 0
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name DragFullWindows -Value 0
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name FontSmoothing -Value 1
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ListviewShadow -Value 0
+
+Write-Output "Fix Context Menu"
+New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" -ErrorAction SilentlyContinue
+New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"   -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Name "(Default)" -Value ""
 
 Write-Output "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
