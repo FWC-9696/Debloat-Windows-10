@@ -29,6 +29,11 @@ $apps = @(
     "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
+    #Logitech
+    "Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
+    #"Logitech.OptionsPlus"      #Logitech Software for consumer-series
+    "Logitech.GHub"             #Logitech Software for G-series
+
     #Fan Control
     "Rem0o.FanControl"
 
