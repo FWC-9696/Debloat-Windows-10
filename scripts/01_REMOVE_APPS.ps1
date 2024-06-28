@@ -2,6 +2,8 @@
 # This script removes unwanted Apps that come with Windows. If you  do not want
 # to remove certain Apps comment out the corresponding lines below.
 
+#https://github.com/PowerShell/PowerShell/issues/16652 <-- Had to fix this error on 2024-06-21
+
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 
@@ -9,6 +11,8 @@ Write-Output "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 Write-Output `n "Uninstalling:"
+$session = New-PSSession -UseWindowsPowerShell
+Invoke-Command -Session $session {
 $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
@@ -175,6 +179,9 @@ foreach ($app in $apps) {
         Where-Object DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
 }
+}
+
+$session | Remove-PSSession
 
 #Uninstall more stuff using WinGet
 winget uninstall 9NFTCH6J7FHV #Power Automate
@@ -250,7 +257,7 @@ New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
 
 Write-Output "Uninstall Desktop Teams, if Present"
-winget uninstall Microsoft.Teams
+winget uninstall Microsoft.Teams.Free
 
 Write-Output `n
 Write-Output "Note: Windows 11 will pin apps to the start menu without installing them. `nYou may need to manually unpin these apps!"

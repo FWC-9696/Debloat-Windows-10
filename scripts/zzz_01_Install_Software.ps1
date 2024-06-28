@@ -20,14 +20,19 @@ $apps = @(
     #"9NBLGGH10PG8"             #Microsoft People
     #"9WZDNCRFJ3PT"             #Groove Music
     #"9WZDNCRFJ1P3"	            #One Drive
-    #"9WZDNCRFHVQM"             #Mail and Calendar (Old)
-    #"9NRX63209R7B"             #Outlook for Windows (Replacement for Mail & Calendar)
+
     #"9PGW18NPBZV5"             #Minecraft Launcher, Doesn't work; Needs to be installed through Store/Xbox App
     
     #Non-Windows UWP Apps
     "9NBHCS1LX4R0"             #Paint.net
     "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
+
+    #Email Clients
+    #"Mozilla.Thunderbird"      #Mozilla Thunderbird Email Client
+    #Mozilla Thunderbird Beta   #See Below
+    #"9WZDNCRFHVQM"             #Mail and Calendar (Old)
+    #"9NRX63209R7B"             #Outlook for Windows (Replacement for Mail & Calendar)
 
     #Logitech
     "Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
@@ -51,7 +56,7 @@ $apps = @(
     
     #Printer Apps
     #"9WZDNCRFJ14K"             #Cannon Inkjet Print Utility
-    #"9WZDNCRFHWLH"             #HP Smart
+    "9WZDNCRFHWLH"             #HP Smart
 )
 
 foreach ($app in $apps) {
@@ -61,6 +66,8 @@ foreach ($app in $apps) {
 
     }
 
-Write-Host "Opening AMD Website for AMD Software Download (No Winget Package)"
+Write-Host "Opening Websites for Software with no Winget Packages"
 sleep 3
 Start-Process https://www.amd.com/en/support #AMD Software
+sleep 3
+Start-Process https://www.thunderbird.net/en-US/thunderbird/all/?release=beta #Mozilla Thunderbird Beta
