@@ -210,6 +210,8 @@ winget uninstall 9P7JQGL6GC8P #Luminar Neo AI Photo Editor
 winget uninstall 9PL59F1G4XSZ #Linkedin
 winget uninstall 9PGM3QB3PDRD #Camo Studio
 winget uninstall XPDDXX9QW8N9D7 #Grammarly
+winget uninstall ExpressVPN #ExpressVPN
+winget uninstall 9N2F0P0166HF #PDF Editor & Converter
 
 #Remove shortcuts
 $shortcuts = @(

@@ -18,8 +18,8 @@ Set-ItemProperty -Path "HKCU:\Control Panel\International" "itime" "1" -ErrorAct
 Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortTime" "HH:mm" -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Control Panel\International" "sTimeFormat" "HH:mm:ss" -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKCU:\Control Panel\International" "sShortDate" "yyyy-MM-dd" -ErrorAction SilentlyContinue
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 -ErrorAction SilentlyContinue -Force
 
 $services = @(
     "tzautoupdate" #Automatically sets the system time zone.
