@@ -157,6 +157,9 @@ $apps = @(
     #Manufacturer-Specific Junk
     "AcerIncorporated.AcerPurifiedVoiceConsole*"
 
+   #MoreStuff
+    "DTSInc.DTSXUltra*"
+
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
     #"Microsoft.MicrosoftEdge"
@@ -212,6 +215,8 @@ winget uninstall 9PGM3QB3PDRD #Camo Studio
 winget uninstall XPDDXX9QW8N9D7 #Grammarly
 winget uninstall ExpressVPN #ExpressVPN
 winget uninstall 9N2F0P0166HF #PDF Editor & Converter
+winget uninstall 9NHT9RB2F4HD #COPILOT APP
+winget uninstall 9N0H1M8J1308 #DTS Ultra
 
 #Remove shortcuts
 $shortcuts = @(

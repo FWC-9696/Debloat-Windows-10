@@ -8,7 +8,7 @@ $apps = @(
     "9NBLGGH4NNS1"             #Update Winget itself
     "Microsoft.PowerToys"      #PowerToys
     "9P7KNL5RWT25"             #Microsoft Sysinternals Suite (Includes Process explorer & Other Tools)
-    "9MV0B5HZVK9Z"             #Xbox
+    #"9MV0B5HZVK9Z"             #Xbox
     "9NZKPSTSNW4P"             #Xbox Game Bar
     "9PLDPG46G47Z"             #Xbox Insider Hub
     "9MZ95KL8MR0L"             #Snip and Sketch (New Snipping Tool)
@@ -35,12 +35,12 @@ $apps = @(
     #"9NRX63209R7B"             #Outlook for Windows (Replacement for Mail & Calendar)
 
     #Logitech
-    "Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
+    #"Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
     #"Logitech.OptionsPlus"      #Logitech Software for consumer-series
-    "Logitech.GHub"             #Logitech Software for G-series
+    #"Logitech.GHub"             #Logitech Software for G-series
 
     #Fan Control
-    "Rem0o.FanControl"
+    #"Rem0o.FanControl"
 
      #Graphics Drivers
     "TechPowerUp.NVCleanstall"     #NVCleanstall
@@ -51,7 +51,7 @@ $apps = @(
     #Other Software
     #"Oracle.JavaRuntimeEnvironment"     #Java
     #"VideoLAN.VLC"                      #VLC Media Player
-    "TheDocumentFoundation.LibreOffice"  #LibreOffice
+    #"TheDocumentFoundation.LibreOffice"  #LibreOffice
     #"Audacity.Audacity"                  #Audacity
     
     #Printer Apps
