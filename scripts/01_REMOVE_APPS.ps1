@@ -191,6 +191,8 @@ winget uninstall 9NFTCH6J7FHV #Power Automate
 winget uninstall 9NZBF4GT040C #Web Search from Microsoft Bing
 winget uninstall 9NTXGKQ8P7N0 #Cross Device Experience Host
 winget uninstall 9WZDNCRFJBD8 #Xbox Console Companion
+winget uninstall 9N3RK8ZV2ZR8 #Widgets Platform Runtime
+winget uninstall 9NHT9RB2F4HD #COPILOT APP
 #winget uninstall 9MSSGKG348SP #Windows Web Experience Pack
 
 #3rd party stuff using WinGet
@@ -215,7 +217,6 @@ winget uninstall 9PGM3QB3PDRD #Camo Studio
 winget uninstall XPDDXX9QW8N9D7 #Grammarly
 winget uninstall ExpressVPN #ExpressVPN
 winget uninstall 9N2F0P0166HF #PDF Editor & Converter
-winget uninstall 9NHT9RB2F4HD #COPILOT APP
 winget uninstall 9N0H1M8J1308 #DTS Ultra
 
 #Remove shortcuts
