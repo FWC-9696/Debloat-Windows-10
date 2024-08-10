@@ -47,7 +47,7 @@ $apps = @(
     "Microsoft.Xbox.TCUI"
     #"Microsoft.GamingApp"           #Xbox App
     "Microsoft.XboxApp"             #Xbox Console Companion. Need this on Win 11 to check Xbox Network Status.
-    "Microsoft.XboxGamingOverlay"   #Xbox Game Bar
+    #"Microsoft.XboxGamingOverlay"   #Xbox Game Bar
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
@@ -194,6 +194,7 @@ winget uninstall 9WZDNCRFJBD8 #Xbox Console Companion
 winget uninstall 9N3RK8ZV2ZR8 #Widgets Platform Runtime
 winget uninstall 9NHT9RB2F4HD #COPILOT APP
 #winget uninstall 9MSSGKG348SP #Windows Web Experience Pack
+winget uninstall XPFFZHVGQWWLHB #OneNote
 
 #3rd party stuff using WinGet
 winget uninstall 9WZDNCRFJ0PK #Dropbox Lite
@@ -266,6 +267,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" 
 
 Write-Output "Uninstall Desktop Teams, if Present"
 winget uninstall Microsoft.Teams.Free
+
+winget install 9NKNC0LD5NN6 --accept-source-agreements --accept-package-agreements #reinstall Xbox TCUI
+winget install 9MWPM2CQNLHN --accept-source-agreements --accept-package-agreements #reinstall Xbox Gaming Services
 
 Write-Output `n
 Write-Output "Note: Windows 11 will pin apps to the start menu without installing them. `nYou may need to manually unpin these apps!"
