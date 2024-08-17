@@ -69,5 +69,5 @@ foreach ($app in $apps) {
 Write-Host "Opening Websites for Software with no Winget Packages"
 sleep 3
 Start-Process https://www.amd.com/en/support #AMD Software
-sleep 3
-Start-Process https://www.thunderbird.net/en-US/thunderbird/all/?release=beta #Mozilla Thunderbird Beta
+#sleep 3
+#Start-Process https://www.thunderbird.net/en-US/thunderbird/all/?release=beta #Mozilla Thunderbird Beta

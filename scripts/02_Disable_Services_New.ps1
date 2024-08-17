@@ -31,4 +31,10 @@ foreach ($service in $services) {
     Get-Service -Name $service | Set-Service -StartupType Manual
 }
 
-Set-Service HPPrintScanDoctorService -StartupType Disabled
+Set-Service HPPrintScanDoctorService -StartupType Disabled -ErrorAction SilentlyContinue
+
+taskmgr /0 /startup
+
+Write-Host `n
+Write-Host "Please Disable Unwanted Programs"
+Write-Host `n

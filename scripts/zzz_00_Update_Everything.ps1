@@ -1,7 +1,9 @@
 #NVCleanstall (Updates Graphics Drivers)
 Write-Host `n
-Write-Host "Checking for Nvidia Driver Updates..." `n
-Start $env:ProgramFiles\NVCleanstall\NVCleanstall.exe -ErrorAction SilentlyContinue
+Write-Host "Checking for Nvidia Driver Updates (if NVCleanstall is installed)..." `n
+$ErrorActionPreference = "silentlycontinue"
+Start $env:ProgramFiles\NVCleanstall\NVCleanstall.exe
+$ErrorActionPreference = "continue"
 
 #Updates Windows Store Apps
 Write-Host "Checking for Windows Store Updates..."

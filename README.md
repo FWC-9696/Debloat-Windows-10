@@ -1,43 +1,38 @@
-# This is a fork of the original Debloat Windows 10. It is designed for a lighter debloat for gaming and general use.
+# This is a fork of the original Debloat Windows 10. It is constantly updated and should work on Windows 10 or 11.
 
-This fork includes additonal utilities in the scripts and startup folders. Note that the original is generally unmaintained.
+Note that the original Debloat-Windows-10 is generally unmaintained and is not very useful for Windows 11.
+
+This fork is designed for a lighter debloat (that doesn't break important windows features) for gaming and general use.
+
+This fork includes additonal utilities in the scripts and startup folders.
 
 Also, note that gaming-related apps and services will remain intact or will be reinstalled by default.
 
-**There is no undo**, I recommend only using these scripts on a fresh
-installation (including Windows Updates). Test everything after running them
-before doing anything else. Also, there is no guarantee that everything will
+**There is no undo**. Be sure to edit the scripts to your preference before running them. Also, there is no guarantee that everything will
 work after future updates since I cannot predict what Microsoft will do next.
 
-## Interactivity
+## Dependencies & Setup
+1. Install/Upgrade WinGet: https://apps.microsoft.com/detail/9nblggh4nns1
+2. Use the "PowerShell v1.0 (Administrator)" shortcut (in the main folder) to run setup commands and install the newest PowerShell version:
 
-The scripts are designed to run without any user interaction. Modify them
-beforehand.
+`Set-ExecutionPolicy Unrestricted`
+
+`ls -Recurse *.ps* | Unblock-File`
+
+`winget install Microsoft.Powershell --accept-source-agreements --accept-package-agreements`
+
+## Usage
+
+Scripts are located in the "scripts" folder. Scripts can be run individually; pick what you need.
+
+1. Install all available updates for your system.
+2. The scripts are designed to run without any user interaction. Edit the scripts to fit your need. Check the comments within each script.
+3. Use the "Windows PowerShell 7.x (Administrator)" shortcut (in scripts folder) to easily run the scripts.
 
 ## Download Latest Version
 
 Code located in the `master` branch is always considered under development, but
 you'll probably want the most recent version anyway.
-
-## Execution
-
-Enable execution of PowerShell scripts:
-
-    PS> Set-ExecutionPolicy Unrestricted -Scope CurrentUser
-
-Unblock PowerShell scripts and modules within this directory:
-
-    PS> ls -Recurse *.ps*1 | Unblock-File
-
-## Usage
-
-Scripts can be run individually, pick what you need.
-
-1. Install all available updates for your system.
-2. Edit the scripts to fit your need. Check the comments within each script.
-3. Run the scripts you want to apply from a PowerShell with administrator privileges (Explorer
-   `Files > Open Windows PowerShell > Open Windows PowerShell as
-   administrator`)
 
 ## License
 
