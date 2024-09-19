@@ -12,6 +12,7 @@ $apps = @(
     "Parsec.Parsec"              #Parsec
     "Valve.Steam"                #Steam
     "Ubisoft.Connect"            #Ubisoft Connect
+    "9N201KQXS5BM"               #Call of Duty
 
 )
 

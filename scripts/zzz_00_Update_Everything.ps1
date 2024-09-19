@@ -7,8 +7,8 @@ $ErrorActionPreference = "continue"
 
 #Updates Windows Store Apps
 Write-Host "Checking for Windows Store Updates..."
-Start ms-windows-store://downloadsandupdates
-Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
+Start ms-windows-store://downloadsandupdates -ErrorAction SilentlyContinue
+Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod -ErrorAction SilentlyContinue
 
 #Updates Windows
 Write-Host "Checking for Windows Updates..." `n
