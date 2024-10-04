@@ -125,6 +125,10 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Type BINARY -Name UserPref
 0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
 Set-ItemProperty -Path "HKCU:\Control Panel\Cursors" -Name '(Default)' -Value "Windows Standard (extra large)" -Force
 
+Write-Output "Adding 'End Task' Option"
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name TaskbarEndTask -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name "TaskbarEndTask" -Value 1
+
 Write-Output "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
 sleep 1
