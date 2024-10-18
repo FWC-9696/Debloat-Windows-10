@@ -15,13 +15,13 @@ work after future updates since I cannot predict what Microsoft will do next.
 1. Install/Upgrade WinGet: https://apps.microsoft.com/detail/9nblggh4nns1
 2. Use the "PowerShell v1.0 (Administrator)" shortcut (in the main folder) to run setup commands and install the newest PowerShell version:
 
-`winget install Microsoft.Powershell --accept-source-agreements --accept-package-agreements`
+    `winget install Microsoft.Powershell --accept-source-agreements --accept-package-agreements`
 
 3. Once the new PowerShell is installed, Use the PowerShell v7.x (Administrator)" shortcut to run the following:
 
-`Set-ExecutionPolicy Unrestricted`
+    `Set-ExecutionPolicy Unrestricted`
 
-`ls -Recurse *.ps* | Unblock-File`
+    `ls -Recurse *.ps* | Unblock-File`
 
 Setup is now complete.
 
@@ -33,7 +33,7 @@ Scripts are located in the "scripts" folder. Scripts can be run individually; pi
 2. The scripts are designed to run without any user interaction. Edit the scripts to fit your need. Check the comments within each script.
 3. Use the "Windows PowerShell 7.x (Administrator)" shortcut (in scripts folder) to easily run the scripts.
 
-*Alternatively, Just run the !~~~EXPRESS_DEBLOAT shortcut from the main folder and it will run all the important debloat scripts with default settings!*
+**Alternatively, Just run the !~~~EXPRESS_DEBLOAT shortcut from the main folder and it will run all the important debloat scripts with default settings!**
 
 ## Download Latest Version
 
