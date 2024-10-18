@@ -4,7 +4,7 @@ Note that the original Debloat-Windows-10 is generally unmaintained and is not v
 
 This fork is designed for a lighter debloat (that doesn't break important windows features) for gaming and general use.
 
-This fork includes additonal utilities in the scripts and startup folders.
+This fork includes additonal utilities in the `scripts` and `utils` folders.
 
 Also, note that gaming-related apps and services will remain intact or will be reinstalled by default.
 
@@ -33,7 +33,7 @@ Scripts are located in the "scripts" folder. Scripts can be run individually; pi
 2. The scripts are designed to run without any user interaction. Edit the scripts to fit your need. Check the comments within each script.
 3. Use the "Windows PowerShell 7.x (Administrator)" shortcut (in scripts folder) to easily run the scripts.
 
-**Alternatively, Just run the !~~~EXPRESS_DEBLOAT shortcut from the main folder and it will run all the important debloat scripts with default settings!**
+**Alternatively, Just run the `!~~~EXPRESS_DEBLOAT` shortcut from the main folder and it will run all the important debloat scripts with default settings!**
 
 ## Download Latest Version
 
