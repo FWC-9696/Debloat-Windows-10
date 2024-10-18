@@ -23,8 +23,12 @@ $apps = @(
 
     #"9PGW18NPBZV5"             #Minecraft Launcher, Doesn't work; Needs to be installed through Store/Xbox App
     
+    #Graphics Editors
+    "9NBHCS1LX4R0"             #Paint.net Windows Store Version (Paid)
+    #"dotPDN.PaintDotNet"       #Paint.Net Classic Version (Free)
+    "Inkscape.Inkscape"        #Inkscape, used for making/editing .svg files
+    
     #Non-Windows UWP Apps
-    "9NBHCS1LX4R0"             #Paint.net
     "XP9M26RSCLNT88"           #Tree Size, for determining sizes of folders
     "XPFCG5NRKXQPKT"           #Foxit PDF Reader
 
@@ -35,7 +39,7 @@ $apps = @(
     #"9NRX63209R7B"             #Outlook for Windows (Replacement for Mail & Calendar)
 
     #Logitech
-    #"Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
+    "Logitech.UnifyingSoftware" #Logitech Unifying Software for wireless KB/Mouse
     #"Logitech.OptionsPlus"      #Logitech Software for consumer-series
     #"Logitech.GHub"             #Logitech Software for G-series
 

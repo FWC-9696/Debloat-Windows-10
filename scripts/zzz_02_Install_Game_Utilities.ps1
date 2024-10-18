@@ -12,7 +12,10 @@
 Write-Host "Installing Game Utilities"
 $apps = @(
 
-    "PlayStation.DualSenseFWUpdater" #DualShock (PS5 Controller) Firmware Updater
+    "Codeusa.BorderlessGaming"       #GREAT, Neccesary Utility for games that don't window properly
+    "Guru3D.RTSS"                    #RivaTuner Statistics Server
+    "LOOT.LOOT"                      #Load Order Optimization Tool (Modloader Used for Some Games)
+    ###"PlayStation.DualSenseFWUpdater" #DualShock (PS5 Controller) Firmware Updater -- No longer works
     "Radmin.VPN"                     #Radmin VPN (Replaces LogMeIn Hamachi or LAN)
     "Logitech.GHUB"                  #Logitech G Hub
     #"ViGEm.ViGEmBus"                 #Nefarius Gamepad Emulator, Subcomponent of DS4Windows
@@ -24,3 +27,5 @@ foreach ($app in $apps) {
     winget install $app --accept-source-agreements --accept-package-agreements
 
     }
+
+    https://controller.dl.playstation.net/controller/lang/en/2100004.html #PlayStation Accessories, replaces "DualSense Firmware Updater"

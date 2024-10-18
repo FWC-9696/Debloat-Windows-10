@@ -35,9 +35,9 @@ Write-Host "Launching Disk Cleanup..." `n
 
 Start-Process "$env:windir\system32\cleanmgr.exe" -Verb RunAs -Wait
 
-Write-Host "Checking for Windows Updates..." `n
+#Write-Host "Checking for Windows Updates..." `n
 
-Start-Process ms-settings:windowsupdate
-USOClient StartInteractiveScan
+#Start-Process ms-settings:windowsupdate
+#USOClient StartInteractiveScan
 
 Write-Host "Done"

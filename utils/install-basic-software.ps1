@@ -1,1 +1,0 @@
-Write-Host "See the scripts folder for installation scripts."

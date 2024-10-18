@@ -15,6 +15,11 @@ Write-Host "Checking for Windows Updates..." `n
 Start-Process ms-settings:windowsupdate
 USOClient StartInteractiveScan
 
+#Update PowerToys
+Write-Host "Checking for PowerToys Updates..." `n
+Start-Process $env:LOCALAPPDATA\PowerToys\PowerToys.exe -Verb RunAs -ErrorAction SilentlyContinue
+Start-Process $env:LOCALAPPDATA\PowerToys\PowerToys.Update.exe -Verb RunAs -ErrorAction SilentlyContinue
+
 #Updates Other Programs
 Write-Host "Checking for Software Updates..." `n
 Start-Process ms-settings:windowsupdate

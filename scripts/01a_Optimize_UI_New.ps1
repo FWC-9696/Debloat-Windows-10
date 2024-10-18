@@ -125,9 +125,15 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Type BINARY -Name UserPref
 0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
 Set-ItemProperty -Path "HKCU:\Control Panel\Cursors" -Name '(Default)' -Value "Windows Standard (extra large)" -Force
 
-Write-Output "Adding 'End Task' Option"
+Write-Output "Adding 'End Task' Option To Right Click Menu"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name TaskbarEndTask -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name "TaskbarEndTask" -Value 1
+
+Write-Output "Changing Date/Time Format"
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1
+#New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ShowShortenedDateTime -Type Dword -Value 0 -ErrorAction SilentlyContinue   #Option to use long date format (Win 11)
+#Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowShortenedDateTime" 0
 
 Write-Output "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
@@ -136,8 +142,8 @@ start explorer.exe
 sleep 3
 
 #Write-Output "Showing all notification icons..."
-New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 1
+New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
 
 Write-Output `n
 Write-Output "Trying to Show Mouse Options in Control Panel"

@@ -9,7 +9,7 @@
 #& "$env:ProgramFiles\NVCleanstall\NVCleanstall.exe"						                          #NVCleanstall
 #& "$env:ProgramFiles\DS4Windows\DS4Updater.exe"							                          #DS4Windows
 #& "$env:ProgramFiles\Sony\FW updater\FWupdater.exe"						                          #DualSense Firmware Updater
-& "$env:ProgramFiles\LGHUB\lghub.exe"								                              #Logitech G Hub
+Start-Process "$env:ProgramFiles\LGHUB\lghub.exe" -ErrorAction SilentlyContinue	                              #Logitech G Hub
 #& "$env:ProgramFiles\caffeine.exe" -startoff							                          #Caffeine, but start inactive with "-startoff"
 "$env:LOCALAPPDATA\PowerToys\PowerToys.Awake.exe"                                                 #PowerToys Awake, Replaces Caffeine
 #& "$env:ProgramFiles\DisplayLink Core Software\DisplayLinkTrayApp.exe"				              #DisplayLink
