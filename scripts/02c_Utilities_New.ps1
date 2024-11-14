@@ -97,3 +97,8 @@ Write-Output `n "############Disable Memory Compression############" `n
 Disable-MMAgent -mc
 
 Write-Output `n "############Done############" `n
+
+#####################################################################################################
+### Memory Reduction Registry Tweaks ###
+
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control" "SvcHostSplitThresholdInK" -Value 04000000

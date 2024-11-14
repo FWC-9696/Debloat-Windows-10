@@ -4,6 +4,7 @@
 &".\scripts\02a_Remove_Apps.ps1"
 &".\scripts\02b_Disable_Services_New.ps1"
 &".\scripts\02c_Utilities_New.ps1"
+&".\scripts\02d_Memory_Tweaks.ps1"
 &".\scripts\03_Clean_Up_Temp+Fix_Updates.ps1"
 #&".\scripts\zzz_00_Update_Everything.ps1"
 
