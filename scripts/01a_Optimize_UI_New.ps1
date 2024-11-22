@@ -3,14 +3,14 @@
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
-Write-Output "Elevating priviledges for this process"
+Write-Output `n "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
-Write-Output "Adjust Appearance and Performance of Windows"
+Write-Output `n "Adjust Appearance and Performance of Windows"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 2
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" "VisualFXSetting" 3
 
-Write-Output "Apply MarkC's mouse acceleration fix"
+Write-Output `n "Apply MarkC's mouse acceleration fix"
 Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "MouseSensitivity" "10"
 Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "MouseSpeed" "0"
 Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "MouseThreshold1" "0"
@@ -23,16 +23,17 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "SmoothMouseYCurve" ([byte[]]
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00, 0x00, 0x00,
 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA8, 0x00, 0x00,
 0x00, 0x00, 0x00, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00))
+Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" "ActiveWindowTracking" "1"
 
-Write-Output "Disable easy access keyboard stuff"
+Write-Output `n "Disable easy access keyboard stuff"
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" "Flags" "506"
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "122"
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" "Flags" "58"
 
-Write-Output "Disable Edge desktop shortcut on new profiles"
+Write-Output `n "Disable Edge desktop shortcut on new profiles"
 New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name DisableEdgeDesktopShortcutCreation -Type DWORD -Value 1 -ErrorAction SilentlyContinue
 
-Write-Output "Setting folder view options"
+Write-Output `n "Setting folder view options"
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Hidden" 1
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideFileExt" 0
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideDrivesWithNoMedia" 0
@@ -40,32 +41,27 @@ Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSuperHidden" 1
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "IconsOnly" 0
 
-Write-Output "Disable Aero-Shake Minimize feature"
+Write-Output `n "Disable Aero-Shake Minimize feature"
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "DisallowShaking" 1
 
-Write-Output "Setting default explorer view to This PC"
+Write-Output `n "Setting default explorer view to This PC"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "LaunchTo" 1
 
-Write-Output "Disable Hybrid Shutdown"
+Write-Output `n "Disable Hybrid Shutdown"
 powercfg -h off
 
-Write-Output "Hide The Search Bar"
+Write-Output `n "Hide The Search Bar"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" "SearchboxTaskbarMode" 0
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name IsDynamicSearchBoxEnabled -Type DWORD -Value 0  -ErrorAction SilentlyContinue  -Force #Hide Search (Win 11)
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" "IsDynamicSearchBoxEnabled" 0
 New-Item -Path "HKLM:\SOFTWARE\Microsoft\PolicyManager\default\Search" -Name DisableSearch -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\PolicyManager\default\Search" "DisableSearch" 1
 
-Write-Output "Showing All Notification Icons"
-New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "EnableAutoTray" 0
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
-
-Write-Output "Showing Scroll Bars"
+Write-Output `n "Showing Scroll Bars"
 New-Item -Path "HKCU:\Control Panel\Accessibility" -Name DynamicScrollbars -Type DWORD -Value 0 -ErrorAction SilentlyContinue  -Force
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility" "DynamicScrollbars" 0
 
-Write-Output "Setting Windows 10/11 Display Options"
+Write-Output `n "Setting Windows 10/11 Display Options"
 
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" "AppsUseLightTheme" 0
@@ -85,33 +81,38 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarMn" 0
 
-Write-Output "Disabling Copilot"
+Write-Output `n "Disabling Copilot"
 New-FolderForced "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot"
 New-Item -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" -Name TurnOffWindowsCopilot -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:Software\Policies\Microsoft\Windows\WindowsCopilot" "TurnOffWindowsCopilot" 1
 
-Write-Output "Stopping Newsfeed from Opening on Hover"
+Write-Output `n "Stopping Newsfeed from Opening on Hover"
 New-Item -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" -Name ShellFeedsTaskbarOpenOnHover -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" "ShellFeedsTaskbarOpenOnHover" 0
+New-Item -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" -Name OpenOnHover -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
+Set-ItemProperty -Path "HKCU:Software\Microsoft\Windows\CurrentVersion\Feeds" "OpenOnHover" 0
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" -ItemType Path -Force -ErrorAction SilentlyContinue
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" -Name "OpenOnHover" -Value 0 -ItemType DWord -ErrorAction SilentlyContinue -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" "OpenOnHover" 0
 
-Write-Output "Windows 11: Remove Taskbar Animations"
+Write-Output `n "Windows 11: Remove Taskbar Animations"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAnimations -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarAnimations" 0
 
-Write-Output "Remove Recommended From Start"
+Write-Output `n "Remove Recommended From Start"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideRecommendedSection -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideRecommendedSection" 1
 
-Write-Output "Set Start Layout"
+Write-Output `n "Set Start Layout"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_Layout -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_Layout" 1
 
-Write-Output "Fix Context Menu"
+Write-Output `n "Fix Context (Right-Click) Menu"
 New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" -ErrorAction SilentlyContinue -Force
 New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Name "(Default)" -Value ""
 
-Write-Output "Adjusting Appearance & Performance of Windows"
+Write-Output `n "Adjusting Appearance & Performance of Windows"
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name MinANimate -Value 0
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Currentversion\Explorer\Advanced" -Name TaskbarAnimations -Value 0
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name EnableAeroPeek -Value 0
@@ -125,31 +126,25 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Type BINARY -Name UserPref
 0x12, 0x02, 0x80, 0x10, 0x00, 0x00, 0x00))
 Set-ItemProperty -Path "HKCU:\Control Panel\Cursors" -Name '(Default)' -Value "Windows Standard (extra large)" -Force
 
-Write-Output "Adding 'End Task' Option To Right Click Menu"
+Write-Output `n "Adding 'End Task' Option To Right Click Menu"
 New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name TaskbarEndTask -Type DWORD -Value 1 -ErrorAction SilentlyContinue -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name "TaskbarEndTask" -Value 1
 
-Write-Output "Changing Date/Time Format"
+Write-Output `n "Changing Date/Time Format"
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowSecondsInSystemClock" 1
 #New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name ShowShortenedDateTime -Type Dword -Value 0 -ErrorAction SilentlyContinue   #Option to use long date format (Win 11)
 #Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "ShowShortenedDateTime" 0
 
-Write-Output "Done, Restarting Explorer..."
+Write-Output `n "Done, Restarting Explorer..."
 taskkill /f /im explorer.exe
 sleep 1
 start explorer.exe
 sleep 3
 
-#Write-Output "Showing all notification icons..."
-New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name EnableAutoTray -Type DWORD -Value 0 -ErrorAction SilentlyContinue -Force
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" "EnableAutoTray" 0
-
-Write-Output `n
-Write-Output "Trying to Show Mouse Options in Control Panel"
+Write-Output `n "Trying to Show Mouse Options in Control Panel & Settings"
 control /name Microsoft.Mouse
-Write-Output `n
+start ms-settings:easeofaccess-mousepointer
 
-Write-Output `n
-Write-Output "REBOOT IS REQUIRED FOR SOME ITEMS!"
+Write-Output `n "REBOOT IS REQUIRED FOR SOME ITEMS!"
 Write-Output `n

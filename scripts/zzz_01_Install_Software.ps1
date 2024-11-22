@@ -60,7 +60,7 @@ $apps = @(
     
     #Printer Apps
     #"9WZDNCRFJ14K"             #Cannon Inkjet Print Utility
-    "9WZDNCRFHWLH"             #HP Smart
+    #"9WZDNCRFHWLH"             #HP Smart
 )
 
 foreach ($app in $apps) {
