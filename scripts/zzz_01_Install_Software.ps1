@@ -20,9 +20,11 @@ $apps = @(
     #"9NBLGGH10PG8"             #Microsoft People
     #"9WZDNCRFJ3PT"             #Groove Music
     #"9WZDNCRFJ1P3"	            #One Drive
-
     #"9PGW18NPBZV5"             #Minecraft Launcher, Doesn't work; Needs to be installed through Store/Xbox App
     
+    #Rufus
+    Rufus.Rufus                #Mounts ISOs
+
     #Graphics Editors
     "9NBHCS1LX4R0"             #Paint.net Windows Store Version (Paid)
     #"dotPDN.PaintDotNet"       #Paint.Net Classic Version (Free)
@@ -44,14 +46,14 @@ $apps = @(
     #"Logitech.GHub"             #Logitech Software for G-series
 
     #Fan Control
-    #"Rem0o.FanControl"
+    "Rem0o.FanControl"          #Can controll graphics card fan speeds
 
      #Graphics Drivers
     "TechPowerUp.NVCleanstall"     #NVCleanstall
     #######"9NZ1BJQN6BHL"                 #AMD Radeon Software -- DON'T USE THIS Version. See bottom for correct version.
     #"DisplayLink.GraphicsDriver"  #DisplayLink Graphics Driver
     "9N09F8V8FS02"                 #DisplayLink Manager
-      
+          
     #Other Software
     #"Oracle.JavaRuntimeEnvironment"     #Java
     #"VideoLAN.VLC"                      #VLC Media Player
@@ -61,6 +63,9 @@ $apps = @(
     #Printer Apps
     #"9WZDNCRFJ14K"             #Cannon Inkjet Print Utility
     #"9WZDNCRFHWLH"             #HP Smart
+
+    #Acer App
+    "9MZPX5WCBMWT"               #Control Center, gives Serial Number for Acer PCs
 )
 
 foreach ($app in $apps) {

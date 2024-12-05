@@ -11,6 +11,8 @@ foreach ($key in $keys) {
     
     $key = -join($iconPath,'\',$key)
     
+    Set-ItemProperty $key -Name IsPromoted -Value 1
+    
     $Error.Clear()
         try{
         $iconName = Get-ItemPropertyValue $key -Name InitialTooltip
@@ -20,8 +22,6 @@ foreach ($key in $keys) {
         }
 
     Write-Host "`t Promoting Icon: $iconName"
-
-    Set-ItemProperty $key -Name IsPromoted -Value 1
 
     #Add-Content -Value $key -Path "$env:LOCALAPPDATA\Debloat-Windows\Notification_Icons.txt"             #For Debugging
         }
