@@ -272,6 +272,9 @@ Write-Host `n
 Write-Host "Remove Cortana"
 winget uninstall 9NFFX4SZZ23L
 Write-Host `n
+Write-Host "Remove Cross-Device Experience Host"
+winget uninstall 9NTXGKQ8P7N0
+Write-Host `n
 
 winget install 9NKNC0LD5NN6 --accept-source-agreements --accept-package-agreements #reinstall Xbox TCUI
 winget install 9MWPM2CQNLHN --accept-source-agreements --accept-package-agreements #reinstall Xbox Gaming Services

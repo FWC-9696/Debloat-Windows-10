@@ -23,7 +23,7 @@ $apps = @(
     #"9PGW18NPBZV5"             #Minecraft Launcher, Doesn't work; Needs to be installed through Store/Xbox App
     
     #Rufus
-    Rufus.Rufus                #Mounts ISOs
+    "Rufus.Rufus"                #Mounts ISOs
 
     #Graphics Editors
     "9NBHCS1LX4R0"             #Paint.net Windows Store Version (Paid)

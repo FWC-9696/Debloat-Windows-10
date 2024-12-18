@@ -22,9 +22,9 @@ Start-Process $env:LOCALAPPDATA\PowerToys\PowerToys.Update.exe -Verb RunAs -Erro
 
 #Updates Other Programs
 Write-Host "Checking for Software Updates..." `n
-Start-Process ms-settings:windowsupdate
-USOClient StartInteractiveScan
 winget upgrade
-Write-Host `n
-Write-Host "To Upgrade Everything, run the following command:"
+Read-Host `n "Press enter to continue"
+Write-Host "To upgrade everything, run the following command:"
 Write-Host "winget upgrade --all --accept-source-agreements --accept-package-agreements" `n
+Write-Host "To upgrade an individual package, run:"
+Write-Host "winget upgrade <ID>"
