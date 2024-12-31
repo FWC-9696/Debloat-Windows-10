@@ -30,3 +30,8 @@ Start-Process https://gamedownloads.rockstargames.com/public/installer/Rockstar-
 Write-Host "Minecraft Launcher"
 sleep 3
 Start-Process https://www.microsoft.com/store/productId/9PGW18NPBZV5
+
+Write-Host "Downloading Xenia Manager & Xenia Patches zip files"
+Start-Process https://github.com/xenia-manager/xenia-manager/releases/latest/
+Start-Process https://github.com/xenia-canary/game-patches/releases/latest/download/game-patches.zip
+Start-Process https://github.com/xenia-manager/xenia-manager/wiki/Quickstart
