@@ -1,3 +1,7 @@
+#Disable Recall
+Dism /Online /Disable-Feature /Featurename:Recall
+Dism /Online /Get-Featureinfo /Featurename:Recall
+
 #NVCleanstall (Updates Graphics Drivers)
 Write-Host `n
 Write-Host "Checking for Nvidia Driver Updates (if NVCleanstall is installed)..." `n
